@@ -49,6 +49,9 @@ fetch("https://net.web.minecraft-services.net/api/v1.0/grant/offer?offer=7118a7d
 
 ## ❓ FAQ  
 
+### is this method genuine?
+Yes, The Method is genuine because this code is acts as the button of redemption page that got removed, this code send a API request to Minecraft Servers.
+
 ### How long does it take to receive the cape?  
 You will receive the cape within **10 to 45 minutes**.  
 
