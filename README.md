@@ -43,7 +43,7 @@ fetch("https://net.web.minecraft-services.net/api/v1.0/grant/offer?offer=7118a7d
 5. Type `allow pasting` in the console if prompted.  
 6. Wait **10 to 45 minutes** for the cape to appear in your Minecraft profile.  
 
----
+
 
 ## ❓ FAQ  
 
