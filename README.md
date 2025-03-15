@@ -5,7 +5,7 @@ Hello, Guys This is a Documentation of How to Get 15th Anniversary Minecraft Cap
 > [!NOTE]
 > you need to sign in with your correct Minecraft account in the website.
 
-1. Open this official Minecraft Site.
+1. Open this official [Minecraft Site](https://www.minecraft.net/en-us/15th-anniversary).
 2. Right Click and go to Inspect.
 3. Click on Console
 4. Paste this code ↓ and click enter.
