@@ -5,6 +5,9 @@ This guide provides a step-by-step process to claim the **Minecraft 15th Anniver
 ## ⚠️ Important Note  
 > **Ensure you are signed in with the correct Minecraft account** before proceeding.  
 
+## ❓ Is It Safe?  
+There is no worry of an account ban because the cape is **celebration material**, and Mojang will not ban a single account for claiming it.  
+
 ## 📌 Steps to Claim the Cape  
 
 1. Open the official [Minecraft 15th Anniversary website](https://www.minecraft.net/en-us/15th-anniversary).  
@@ -38,6 +41,12 @@ fetch("https://net.web.minecraft-services.net/api/v1.0/grant/offer?offer=7118a7d
 .then(response => {
     console.log('Status Code:', response.status);
 });
+```
 
-5. After Insert this Command `allow pasting`
+5. Type `allow pasting` in the console if prompted.  Copy here ↓
 
+``` 
+allow pasting
+```
+
+after this step check your profile either in Minecraft Launcher or there site (for Java Edition)
