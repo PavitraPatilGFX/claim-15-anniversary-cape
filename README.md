@@ -1,27 +1,29 @@
-# Claim Minecraft 15th Anniversary Now!
-Hello, Guys This is a Documentation of How to Get 15th Anniversary Minecraft Cape for free, after it's gone
+# 🎉 Claim the Minecraft 15th Anniversary Cape for Free!  
 
-## Steps
-> [!NOTE]
-> you need to sign in with your correct Minecraft account in the website.
+This guide provides a step-by-step process to claim the **Minecraft 15th Anniversary Cape** even after the official event ends.  
 
-1. Open this official [Minecraft Site](https://www.minecraft.net/en-us/15th-anniversary).
-2. Right Click and go to Inspect.
-3. Click on Console
-4. Paste this code ↓ and click enter.
+## ⚠️ Important Note  
+> **Ensure you are signed in with the correct Minecraft account** before proceeding.  
 
-```
-const mcToken = JSON.parse(localStorage.getItem('MCTokenconst mcToken = JSON.parse(localStorage.getItem('MCToken')).mcToken;
- 
+## 📌 Steps to Claim the Cape  
+
+1. Open the official [Minecraft 15th Anniversary website](https://www.minecraft.net/en-us/15th-anniversary).  
+2. **Right-click** anywhere on the page and select **Inspect** (or press `F12`).  
+3. Navigate to the **Console** tab.  
+4. Paste the following code into the console and press `Enter`:  
+
+```javascript
+const mcToken = JSON.parse(localStorage.getItem('MCToken')).mcToken;
+
 fetch("https://net.web.minecraft-services.net/api/v1.0/grant/offer?offer=7118a7d5-240e-4f6d-8959-5269ba041938", {
   "headers": {
-    "accept": "/",
+    "accept": "*/*",
     "accept-language": "en-US,en;q=0.9",
     "authorization": mcToken,
     "content-type": "application/json",
     "priority": "u=1, i",
     "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-platform":"Windows",
+    "sec-ch-ua-platform": "Windows",
     "sec-fetch-dest": "empty",
     "sec-fetch-mode": "cors",
     "sec-fetch-site": "cross-site"
@@ -35,8 +37,7 @@ fetch("https://net.web.minecraft-services.net/api/v1.0/grant/offer?offer=7118a7d
 })
 .then(response => {
     console.log('Status Code:', response.status);
-  })
+});
 
-```
-5. After type `allow pasting`
-   
+5. After Insert this Command `allow pasting`
+
