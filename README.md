@@ -1,3 +1,5 @@
+![Cape Preview](https://s.namemc.com/3d/skin/body.png?id=12b92a9206470fe2&cape=86a126427a9cf1c9&theta=210&width=293&height=293)
+
 # 🎉 Claim the Minecraft 15th Anniversary Cape for Free!  
 
 This guide explains how to claim the **Minecraft 15th Anniversary Cape** even after the official event ends.  
