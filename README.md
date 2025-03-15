@@ -1,12 +1,9 @@
 # 🎉 Claim the Minecraft 15th Anniversary Cape for Free!  
 
-This guide provides a step-by-step process to claim the **Minecraft 15th Anniversary Cape** even after the official event ends.  
+This guide explains how to claim the **Minecraft 15th Anniversary Cape** even after the official event ends.  
 
 ## ⚠️ Important Note  
 > **Ensure you are signed in with the correct Minecraft account** before proceeding.  
-
-## ❓ Is It Safe?  
-There is no worry of an account ban because the cape is **celebration material**, and Mojang will not ban a single account for claiming it.  
 
 ## 📌 Steps to Claim the Cape  
 
@@ -43,10 +40,21 @@ fetch("https://net.web.minecraft-services.net/api/v1.0/grant/offer?offer=7118a7d
 });
 ```
 
-5. Type `allow pasting` in the console if prompted.  Copy here ↓
+5. Type `allow pasting` in the console if prompted.  
+6. Wait **10 to 45 minutes** for the cape to appear in your Minecraft profile.  
 
-``` 
-allow pasting
-```
+---
 
-after this step check your profile either in Minecraft Launcher or there site (for Java Edition)
+## ❓ FAQ  
+
+### How long does it take to receive the cape?  
+You will receive the cape within **10 to 45 minutes**.  
+
+### Will I receive the cape in both Java and Bedrock?  
+Yes, the cape will be available in **both editions**.  
+
+### I only own one edition. Will I still get the cape?  
+Yes, you will receive the cape in the edition you own.  
+
+### Can my account get banned for this?  
+No, **Mojang is aware of this method** but has not patched it. Since this cape is part of the **15th Anniversary Celebration**, Mojang will not ban any accounts for claiming it.  
