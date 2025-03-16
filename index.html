@@ -184,6 +184,11 @@
             background-color: rgba(255, 255, 255, 0.3);
         }
         
+        .copy-button svg {
+            width: 14px;
+            height: 14px;
+        }
+        
         .faq-item {
             margin-bottom: 25px;
         }
@@ -279,7 +284,7 @@
 .<span class="code-function">then</span>(<span class="code-property">response</span> => {
     <span class="code-function">console</span>.<span class="code-function">log</span>(<span class="code-string">'Status Code:'</span>, <span class="code-property">response</span>.<span class="code-property">status</span>);
 });</code></pre>
-                            <button class="copy-button" onclick="copyCode(this)">
+                            <button class="copy-button" onclick="copyToClipboard(this)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                                     <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
@@ -329,14 +334,12 @@
     </div>
 
     <script>
-        function copyCode(button) {
-            const codeBlock = button.previousElementSibling;
-            const textToCopy = codeBlock.textContent;
-            
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                const originalText = button.innerHTML;
-                button.innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    Copied!
+        function copyToClipboard(button) {
+            // Get the code content - we need the raw code without HTML tags
+            const codeText = `const mcToken = JSON.parse(localStorage.getItem('MCToken')).mcToken;
+
+fetch("https://net.web.minecraft-services.net/api/v1.0/grant/offer?offer=7118a7d5-240e-4f6d-8959-5269ba041938", {
+  "headers": {
+    "accept": "*/*",
+    "accept-language": "en-US,en;q=0.9",
+    "authorization": mcToken,
