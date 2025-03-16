@@ -3,122 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft 15th Anniversary Cape</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Minecraft 15th Anniversary Cape Guide</title>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+        :root {
+            --primary: #2c8c3c;
+            --secondary: #f9a825;
+            --bg: #f5f5f5;
+            --text: #333;
+            --code-bg: #272822;
+            --card-bg: #fff;
+            --border: #e0e0e0;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        header {
-            text-align: center;
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
             padding: 20px;
-            background-color: #0078D4;
-            color: #fff;
-            font-size: 24px;
         }
+        
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            background: #fff;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 30px 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .cape-preview {
+            max-width: 140px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .header-content h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+        
+        .header-content p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        main {
+            padding: 40px;
+        }
+        
+        section {
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+        }
+        
+        h2 .emoji {
+            color: var(--secondary);
+        }
+        
+        .note {
+            background-color: #fff8e1;
+            border-left: 4px solid var(--secondary);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        
+        .steps {
+            list-style-type: none;
+            counter-reset: step-counter;
+        }
+        
+        .steps li {
+            counter-increment: step-counter;
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .steps li::before {
+            content: counter(step-counter);
+            background-color: var(--primary);
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Courier New', monospace;
+            background-color: #f1f1f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background-color: var(--code-bg);
+            color: #f8f8f2;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .important-note {
-            background: #e3f2fd;
-            padding: 15px;
-            border-left: 5px solid #0078D4;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        .steps ol {
-            padding-left: 20px;
-        }
-        .code-container {
-            position: relative;
-            background: #1e1e1e;
-            color: #fff;
-            padding: 15px;
-            border-radius: 5px;
-            font-family: monospace;
             overflow-x: auto;
+            margin: 20px 0;
+            font-size: 0.95rem;
         }
-        .copy-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #0078D4;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
+        
+        .faq-item {
+            margin-bottom: 25px;
         }
-        .copy-btn:hover {
-            background: #0056a3;
+        
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 10px;
         }
-        .faq h3 {
-            margin-top: 15px;
-            color: #0078D4;
+        
+        .highlight {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 20px;
+            }
+            
+            main {
+                padding: 25px 20px;
+            }
+            
+            .cape-preview {
+                max-width: 120px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>🎉 Claim the Minecraft 15th Anniversary Cape for Free!</header>
     <div class="container">
-        <section class="important-note">
-            Ensure you are signed in with the correct Minecraft account before proceeding.
-        </section>
-        <section class="steps">
-            <h2>📌 Steps to Claim the Cape</h2>
-            <ol>
-                <li>Open the official <a href="https://www.minecraft.net/en-us/15th-anniversary" target="_blank">Minecraft 15th Anniversary website</a>.</li>
-                <li><strong>Right-click</strong> anywhere on the page and select <strong>Inspect</strong> (or press <code>F12</code>).</li>
-                <li>Navigate to the <strong>Console</strong> tab.</li>
-                <li>Paste the following code into the console and press <code>Enter</code>:</li>
-            </ol>
-            <div class="code-container">
-                <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
-                <pre id="code-block"><code>const mcToken = JSON.parse(localStorage.getItem('MCToken')).mcToken;
+        <header>
+            <img src="https://s.namemc.com/3d/skin/body.png?id=12b92a9206470fe2&cape=86a126427a9cf1c9&theta=210&width=293&height=293" alt="Cape Preview" class="cape-preview">
+            <div class="header-content">
+                <h1>Minecraft 15th Anniversary Cape</h1>
+                <p>Free cape claim guide for all Minecraft players</p>
+            </div>
+        </header>
+        
+        <main>
+            <section>
+                <p>This guide explains how to claim the exclusive <strong>Minecraft 15th Anniversary Cape</strong> even after the official event has ended.</p>
+                
+                <div class="note">
+                    <strong>⚠️ Important:</strong> Make sure you are signed in with the correct Minecraft account before proceeding with these steps.
+                </div>
+            </section>
+            
+            <section>
+                <h2><span class="emoji">📌</span> How to Claim Your Cape</h2>
+                
+                <ol class="steps">
+                    <li>Open the official <a href="https://www.minecraft.net/en-us/15th-anniversary" target="_blank">Minecraft 15th Anniversary website</a>.</li>
+                    <li><strong>Right-click</strong> anywhere on the page and select <strong>Inspect</strong> (or press <code>F12</code>).</li>
+                    <li>Navigate to the <strong>Console</strong> tab in the developer tools.</li>
+                    <li>Paste the following code into the console and press <code>Enter</code>:
+                        <pre><code>const mcToken = JSON.parse(localStorage.getItem('MCToken')).mcToken;
+
 fetch("https://net.web.minecraft-services.net/api/v1.0/grant/offer?offer=7118a7d5-240e-4f6d-8959-5269ba041938", {
   "headers": {
     "accept": "*/*",
     "accept-language": "en-US,en;q=0.9",
     "authorization": mcToken,
-    "content-type": "application/json"
+    "content-type": "application/json",
+    "priority": "u=1, i",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "Windows",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "cross-site"
   },
-  "method": "PUT"
-}).then(response => {
+  "referrer": "https://www.minecraft.net/",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "PUT",
+  "mode": "cors",
+  "credentials": "include"
+})
+.then(response => {
     console.log('Status Code:', response.status);
 });</code></pre>
-            </div>
-            <script>
-                function copyCode() {
-                    const codeBlock = document.getElementById("code-block").innerText;
-                    navigator.clipboard.writeText(codeBlock).then(() => {
-                        alert("Code copied to clipboard!");
-                    });
-                }
-            </script>
-        </section>
-        <section class="faq">
-            <h2>❓ FAQ</h2>
-            <h3>Is this method genuine?</h3>
-            <p>Yes, this method acts as the removed redemption button and sends an API request to Minecraft servers.</p>
-            <h3>How long does it take to receive the cape?</h3>
-            <p>Within <strong>10 to 45 minutes</strong>.</p>
-            <h3>Will I receive the cape in both Java and Bedrock?</h3>
-            <p>Yes, the cape is available in <strong>both editions</strong>.</p>
-            <h3>I only own one edition. Will I still get the cape?</h3>
-            <p>Yes, you will receive the cape in the edition you own.</p>
-            <h3>Can my account get banned for this?</h3>
-            <p>No, <strong>Mojang is aware of this method</strong> and has not patched it. They will not ban accounts for claiming it.</p>
-        </section>
+                    </li>
+                    <li>Type <code>allow pasting</code> in the console if prompted.</li>
+                    <li>Wait <strong>10 to 45 minutes</strong> for the cape to appear in your Minecraft profile.</li>
+                </ol>
+            </section>
+            
+            <section>
+                <h2><span class="emoji">❓</span> Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Is this method genuine?</div>
+                    <p>Yes, this method is legitimate. The code functions as the redemption button that was removed from the official page. It sends an API request directly to Minecraft servers.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How long does it take to receive the cape?</div>
+                    <p>You will receive the cape within <span class="highlight">10 to 45 minutes</span> after successfully running the code.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Will I receive the cape in both Java and Bedrock?</div>
+                    <p>Yes, the cape will be available in <span class="highlight">both editions</span> if you own them.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">I only own one edition. Will I still get the cape?</div>
+                    <p>Yes, you will receive the cape in the edition you own.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can my account get banned for this?</div>
+                    <p>No, <span class="highlight">Mojang is aware of this method</span> but has not patched it. Since this cape is part of the <span class="highlight">15th Anniversary Celebration</span>, Mojang will not ban any accounts for claiming it.</p>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>This guide was last updated on March 16, 2025</p>
+        </footer>
     </div>
 </body>
 </html>
