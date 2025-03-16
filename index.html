@@ -10,7 +10,8 @@
             --secondary: #f9a825;
             --bg: #f5f5f5;
             --text: #333;
-            --code-bg: #272822;
+            --code-bg: #1e1e1e;
+            --code-text: #f8f8f2;
             --card-bg: #fff;
             --border: #e0e0e0;
         }
@@ -130,14 +131,57 @@
             font-size: 0.9em;
         }
         
+        .code-container {
+            position: relative;
+            margin: 20px 0;
+        }
+        
         pre {
             background-color: var(--code-bg);
-            color: #f8f8f2;
+            color: var(--code-text);
             padding: 20px;
             border-radius: 8px;
             overflow-x: auto;
-            margin: 20px 0;
             font-size: 0.95rem;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+        
+        pre code {
+            background-color: transparent;
+            color: var(--code-text);
+            padding: 0;
+            font-size: inherit;
+            border-radius: 0;
+            display: block;
+        }
+        
+        .code-keyword { color: #ff79c6; }
+        .code-string { color: #f1fa8c; }
+        .code-function { color: #50fa7b; }
+        .code-operator { color: #ff79c6; }
+        .code-punctuation { color: #f8f8f2; }
+        .code-comment { color: #6272a4; }
+        .code-property { color: #8be9fd; }
+        
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 4px;
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: background-color 0.2s;
+        }
+        
+        .copy-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
         }
         
         .faq-item {
@@ -209,31 +253,40 @@
                     <li><strong>Right-click</strong> anywhere on the page and select <strong>Inspect</strong> (or press <code>F12</code>).</li>
                     <li>Navigate to the <strong>Console</strong> tab in the developer tools.</li>
                     <li>Paste the following code into the console and press <code>Enter</code>:
-                        <pre><code>const mcToken = JSON.parse(localStorage.getItem('MCToken')).mcToken;
+                        <div class="code-container">
+                            <pre><code><span class="code-keyword">const</span> <span class="code-property">mcToken</span> = <span class="code-function">JSON</span>.<span class="code-function">parse</span>(<span class="code-function">localStorage</span>.<span class="code-function">getItem</span>(<span class="code-string">'MCToken'</span>)).<span class="code-property">mcToken</span>;
 
-fetch("https://net.web.minecraft-services.net/api/v1.0/grant/offer?offer=7118a7d5-240e-4f6d-8959-5269ba041938", {
-  "headers": {
-    "accept": "*/*",
-    "accept-language": "en-US,en;q=0.9",
-    "authorization": mcToken,
-    "content-type": "application/json",
-    "priority": "u=1, i",
-    "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-platform": "Windows",
-    "sec-fetch-dest": "empty",
-    "sec-fetch-mode": "cors",
-    "sec-fetch-site": "cross-site"
+<span class="code-function">fetch</span>(<span class="code-string">"https://net.web.minecraft-services.net/api/v1.0/grant/offer?offer=7118a7d5-240e-4f6d-8959-5269ba041938"</span>, {
+  <span class="code-string">"headers"</span>: {
+    <span class="code-string">"accept"</span>: <span class="code-string">"*/*"</span>,
+    <span class="code-string">"accept-language"</span>: <span class="code-string">"en-US,en;q=0.9"</span>,
+    <span class="code-string">"authorization"</span>: <span class="code-property">mcToken</span>,
+    <span class="code-string">"content-type"</span>: <span class="code-string">"application/json"</span>,
+    <span class="code-string">"priority"</span>: <span class="code-string">"u=1, i"</span>,
+    <span class="code-string">"sec-ch-ua-mobile"</span>: <span class="code-string">"?0"</span>,
+    <span class="code-string">"sec-ch-ua-platform"</span>: <span class="code-string">"Windows"</span>,
+    <span class="code-string">"sec-fetch-dest"</span>: <span class="code-string">"empty"</span>,
+    <span class="code-string">"sec-fetch-mode"</span>: <span class="code-string">"cors"</span>,
+    <span class="code-string">"sec-fetch-site"</span>: <span class="code-string">"cross-site"</span>
   },
-  "referrer": "https://www.minecraft.net/",
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": null,
-  "method": "PUT",
-  "mode": "cors",
-  "credentials": "include"
+  <span class="code-string">"referrer"</span>: <span class="code-string">"https://www.minecraft.net/"</span>,
+  <span class="code-string">"referrerPolicy"</span>: <span class="code-string">"strict-origin-when-cross-origin"</span>,
+  <span class="code-string">"body"</span>: <span class="code-keyword">null</span>,
+  <span class="code-string">"method"</span>: <span class="code-string">"PUT"</span>,
+  <span class="code-string">"mode"</span>: <span class="code-string">"cors"</span>,
+  <span class="code-string">"credentials"</span>: <span class="code-string">"include"</span>
 })
-.then(response => {
-    console.log('Status Code:', response.status);
+.<span class="code-function">then</span>(<span class="code-property">response</span> => {
+    <span class="code-function">console</span>.<span class="code-function">log</span>(<span class="code-string">'Status Code:'</span>, <span class="code-property">response</span>.<span class="code-property">status</span>);
 });</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                                </svg>
+                                Copy
+                            </button>
+                        </div>
                     </li>
                     <li>Type <code>allow pasting</code> in the console if prompted.</li>
                     <li>Wait <strong>10 to 45 minutes</strong> for the cape to appear in your Minecraft profile.</li>
@@ -274,5 +327,16 @@ fetch("https://net.web.minecraft-services.net/api/v1.0/grant/offer?offer=7118a7d
             <p>This guide was last updated on March 16, 2025</p>
         </footer>
     </div>
-</body>
-</html>
+
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.previousElementSibling;
+            const textToCopy = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Copied!
