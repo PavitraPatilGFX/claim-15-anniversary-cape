@@ -4,27 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft 15th Anniversary Cape</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #0078D4;
+            color: #fff;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .important-note {
+            background: #e3f2fd;
+            padding: 15px;
+            border-left: 5px solid #0078D4;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .steps ol {
+            padding-left: 20px;
+        }
+        .code-container {
+            position: relative;
+            background: #1e1e1e;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #0078D4;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .copy-btn:hover {
+            background: #0056a3;
+        }
+        .faq h3 {
+            margin-top: 15px;
+            color: #0078D4;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>🎉 Claim the Minecraft 15th Anniversary Cape for Free!</h1>
-    </header>
-    <main>
+    <header>🎉 Claim the Minecraft 15th Anniversary Cape for Free!</header>
+    <div class="container">
         <section class="important-note">
-            <p><strong>Ensure you are signed in with the correct Minecraft account</strong> before proceeding.</p>
+            Ensure you are signed in with the correct Minecraft account before proceeding.
         </section>
         <section class="steps">
             <h2>📌 Steps to Claim the Cape</h2>
             <ol>
-                <li>Open the official <a href="https://www.minecraft.net/en-us/15th-anniversary">Minecraft 15th Anniversary website</a>.</li>
+                <li>Open the official <a href="https://www.minecraft.net/en-us/15th-anniversary" target="_blank">Minecraft 15th Anniversary website</a>.</li>
                 <li><strong>Right-click</strong> anywhere on the page and select <strong>Inspect</strong> (or press <code>F12</code>).</li>
                 <li>Navigate to the <strong>Console</strong> tab.</li>
                 <li>Paste the following code into the console and press <code>Enter</code>:</li>
             </ol>
             <div class="code-container">
+                <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
                 <pre id="code-block"><code>const mcToken = JSON.parse(localStorage.getItem('MCToken')).mcToken;
-
 fetch("https://net.web.minecraft-services.net/api/v1.0/grant/offer?offer=7118a7d5-240e-4f6d-8959-5269ba041938", {
   "headers": {
     "accept": "*/*",
@@ -33,11 +93,9 @@ fetch("https://net.web.minecraft-services.net/api/v1.0/grant/offer?offer=7118a7d
     "content-type": "application/json"
   },
   "method": "PUT"
-})
-.then(response => {
+}).then(response => {
     console.log('Status Code:', response.status);
 });</code></pre>
-                <button onclick="copyCode()">Copy Code</button>
             </div>
             <script>
                 function copyCode() {
@@ -51,16 +109,16 @@ fetch("https://net.web.minecraft-services.net/api/v1.0/grant/offer?offer=7118a7d
         <section class="faq">
             <h2>❓ FAQ</h2>
             <h3>Is this method genuine?</h3>
-            <p>Yes, this method works by sending an API request to Minecraft servers, acting as the original redemption button that was removed.</p>
+            <p>Yes, this method acts as the removed redemption button and sends an API request to Minecraft servers.</p>
             <h3>How long does it take to receive the cape?</h3>
-            <p>You will receive the cape within <strong>10 to 45 minutes</strong>.</p>
+            <p>Within <strong>10 to 45 minutes</strong>.</p>
             <h3>Will I receive the cape in both Java and Bedrock?</h3>
-            <p>Yes, the cape will be available in <strong>both editions</strong>.</p>
+            <p>Yes, the cape is available in <strong>both editions</strong>.</p>
             <h3>I only own one edition. Will I still get the cape?</h3>
             <p>Yes, you will receive the cape in the edition you own.</p>
             <h3>Can my account get banned for this?</h3>
-            <p>No, <strong>Mojang is aware of this method</strong> but has not patched it. Since this cape is part of the <strong>15th Anniversary Celebration</strong>, Mojang will not ban any accounts for claiming it.</p>
+            <p>No, <strong>Mojang is aware of this method</strong> and has not patched it. They will not ban accounts for claiming it.</p>
         </section>
-    </main>
+    </div>
 </body>
 </html>
