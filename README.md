@@ -1,6 +1,8 @@
 # (Patched)
 as of **16th March 2025**, it was patched by mojang and the method will not going to work, i'll make this repo public archive as this is a history.
 
+#
+
 ![Cape Preview](https://s.namemc.com/3d/skin/body.png?id=12b92a9206470fe2&cape=86a126427a9cf1c9&theta=210&width=293&height=293)
 
 # 🎉 Claim the Minecraft 15th Anniversary Cape for Free!  
